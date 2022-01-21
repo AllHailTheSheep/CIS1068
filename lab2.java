@@ -77,9 +77,8 @@ public class lab2 {
         // since there are 6 keys, and the verses contain one more key per verse, we can just use a for
         // loop and pass them in as "instructions" of sorts.
         for (int i = 0; i < keys.length; i++) {
-            // this is the only line of debugging code i needed. im pretty shocked everything else
+            // this is the only line of debugging code i needed. im pretty happy everything else
             // worked first try.
-
             // System.out.println(Arrays.toString(Arrays.copyOfRange(keys, 0, i + 1)));
             System.out.println(construct_verse(Arrays.copyOfRange(keys, 0, i + 1),  animals));
             // new line at the end of each verse
