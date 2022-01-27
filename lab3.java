@@ -46,7 +46,7 @@ public class lab3 {
     // this is the only parameter that should be modified. the range *should* be able to scale any
     // positive integer but if it's longer then your teminal length you're gonna have a bad time
     // 16 is the max i would suggest going to.
-    static final int SIZE = 4;
+    static final int SIZE = 16;
     public static void main(String[] args) {
         linc_driver();
     }
@@ -111,7 +111,7 @@ public class lab3 {
     }
 
     public static void print_field() {
-        // this function prints a field with an even SIZE
+        // this function prints the field
         StringBuilder sb = new StringBuilder();
 
         // construct the first line
@@ -133,7 +133,6 @@ public class lab3 {
         }
         sb.append(PIPE);
         sb.append(NEWLINE);
-
 
         // now generate the buffer rows of the stadium (rows that have no field)
         int buffer_rows = SIZE;
