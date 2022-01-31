@@ -78,14 +78,17 @@ public class lab4 {
 
     public static double calculate_homework(int hw_weight, int hw_assignments, double hw_avg_score, int hw_late_days, int hw_labs_attended) {
         double hw_score = hw_assignments * hw_avg_score;
+        // if there are less late days then half the assignment we do nothing, otherwise remove 10% per late day
+        // if there are no late days add 5 to the final hw score
         if (hw_late_days > (hw_assignments / 2)) {
             hw_score -= (hw_avg_score * .10) * hw_late_days;
-        } else if (hw_assignments == 0) {
+        } else if (hw_late_days == 0) {
             hw_score += 5;
         }
         double lab_score = 4 * hw_labs_attended;
         double total_possible_points = (hw_assignments * 10) + (hw_assignments * 4);
         double total_points_earned = hw_score + lab_score;
+        // if the wieghted score higher then the possible earned points assign it to the total possible earned points
         double weighted_total = (hw_score + lab_score) * hw_weight / total_possible_points;
         if (weighted_total > total_possible_points) {
             weighted_total = total_possible_points;
@@ -98,6 +101,7 @@ public class lab4 {
     
     public static double calculate_exam(int weight, double score, int curve) {
         double curved_score = score + curve;
+        // if the score is above 100 set it to 100
         if (curved_score > 100) {
             curved_score = 100;
         }
