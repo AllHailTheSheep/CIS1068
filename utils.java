@@ -2,10 +2,7 @@ import java.util.Scanner;
 
 public class utils {
     static final boolean DEBUG = true;
-    public static void main(String[] args) {
-        // this is just to test utils
-        
-    }
+
     public static String get_input(String prompt, Scanner in) {
         /**
         * This function returns a string after prompting the user
