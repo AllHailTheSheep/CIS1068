@@ -46,7 +46,7 @@ public class lab3 {
     // this is the only parameter that should be modified. the range *should* be able to scale any
     // positive integer but if it's longer then your teminal length you're gonna have a bad time
     // 16 is the max i would suggest going to.
-    static final int SIZE = 16;
+    static final int SIZE = 4;
     public static void main(String[] args) {
         linc_driver();
     }
