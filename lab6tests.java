@@ -70,9 +70,10 @@ class lab6tests extends lab6 {
 
     @Test
     void testPickCPUMove() {
+        int iterations = 10000000;
         @SuppressWarnings("unused")
         int s = 0, t = 0, k = 0, h = 0, p = 0;
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < iterations; i++) {
             char c = lab6.pickCPUMove();
             switch (c) {
                 case 's':
@@ -92,7 +93,7 @@ class lab6tests extends lab6 {
                     break;
             }
         }
-        int percentage =(int)(100 * ((double) s / 10000000));
+        int percentage = (int)(100 * ((double) s / (double)iterations));
         if (percentage > 22) {
             fail(String.format("percentage of s picked shouold be around 20%, instead it's %d%%\n", percentage));
         }
