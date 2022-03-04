@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import bin.utils;
+
 // the purpose of this assignment is to create a grade calculator
 
 public class lab4 {

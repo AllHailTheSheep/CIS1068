@@ -2,6 +2,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import bin.utils;
+
 public class lab6 {
     static class LoopControl {
 

@@ -2,6 +2,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import bin.utils;
+
 class lab6tests extends lab6 {
     @Test
     void testGetStringFromChar() {
