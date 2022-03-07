@@ -2,12 +2,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class lab7 {
+public class lab7copy {
     public static void main(String[] args) throws FileNotFoundException {
         // read file into line array sentence by sentence
         String in_path = "./bin/the_great_gatsby.txt";
@@ -16,14 +15,11 @@ public class lab7 {
             System.out.println("File " + in_path + " does not exist.");
             System.exit(1);
         }
-        ArrayList<String> read_lines = readFile(infile);
+        String read_lines = readFile(infile);
         // TODO: create function to return qoutes
 
         // southiealyze by entry in array
-        ArrayList<String> processed_lines = new ArrayList<String>();
-        for (String line : read_lines) {
-            processed_lines.add(southiealyze(line));
-        }
+        String processed_lines = southiealyze(read_lines);
 
         // write to file
         String outfile_path = String.format(removeSuffix(infile.getPath(), ".txt") + "_processed.txt");
@@ -31,29 +27,25 @@ public class lab7 {
         try {
             if (outfile.createNewFile()) {
                 FileWriter writer = new FileWriter(outfile.getPath());
-                for (String line : processed_lines) {writer.write(line + "\n");}
+                writer.write(processed_lines);
             } else {
                 System.out.println("File already exists. Printing result instead.\n");
-                for (String line : processed_lines) {System.out.println(line);}
+                System.out.println(processed_lines);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-            
-    
-
     }
 
-    public static ArrayList<String> readFile(File path) throws FileNotFoundException {
+    public static String readFile(File path) throws FileNotFoundException {
         Scanner reader = new Scanner(path);
-        ArrayList<String> lines = new ArrayList<String>();
-        reader.useDelimiter(".");
+        StringBuilder sb = new StringBuilder();
         while (reader.hasNextLine()) {
             String line = reader.nextLine();
-            lines.add(line.replaceAll("\\s+", " "));
+            sb.append(line + "\n");
         }
         reader.close();
-        return lines;
+        return sb.toString();
     }
 
     public static String southiealyze(String s) {
@@ -157,8 +149,7 @@ public class lab7 {
         else {return false;}
     }
 
-    public static String removeSuffix(String s, String suf)
-    {
+    public static String removeSuffix(String s, String suf) {
         if (s != null && s.endsWith(suf)) {
             return s.split(suf)[0];
         }
