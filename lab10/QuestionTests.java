@@ -3,7 +3,6 @@ package lab10;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import lab10.Question.DiffucultyException;
 
 public class QuestionTests {
