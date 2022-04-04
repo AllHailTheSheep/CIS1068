@@ -8,6 +8,7 @@ import lab10.Question.DiffucultyException;
 public class QuestionTests {
     public static void main(String[] args) throws DiffucultyException {
         try {
+            @SuppressWarnings("unused")
             ObjectiveQuestion test_throws = new ObjectiveQuestion(1, 11, 1, "What is 1 + 1?", "2");
         } catch (DiffucultyException e) {
             System.err.println("Error: " + e.getMessage());
