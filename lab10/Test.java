@@ -61,7 +61,7 @@ public class Test {
                 file.createNewFile();
             }
         } catch (IOException e) {
-            System.err.println("An error occured while. Aboriting.");
+            System.err.println("An error occured. Aborting.");
             e.printStackTrace();
             System.exit(1);
         }
@@ -79,7 +79,7 @@ public class Test {
                 file.createNewFile();
             }
         } catch (IOException e) {
-            System.err.println("An error occured while. Aboriting.");
+            System.err.println("An error occured. Aborting.");
             e.printStackTrace();
             System.exit(1);
         }
