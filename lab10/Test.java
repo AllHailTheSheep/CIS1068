@@ -38,11 +38,11 @@ public class Test {
         for (int i = 0; i < this.questions.size(); i++) {
             String answer = null;
             if (this.questions.get(i) instanceof ObjectiveQuestion) {
-                answer = ((ObjectiveQuestion)this.questions.get(i)).answerKeyToString();
+                answer = ((ObjectiveQuestion) this.questions.get(i)).answerKeyToString();
             } else if (this.questions.get(i) instanceof FillInTheBlankQuestion) {
-                answer = ((FillInTheBlankQuestion)this.questions.get(i)).answerKeyToString();
+                answer = ((FillInTheBlankQuestion) this.questions.get(i)).answerKeyToString();
             } else if (this.questions.get(i) instanceof MultipleChoiceQuestion) {
-                answer = ((MultipleChoiceQuestion)this.questions.get(i)).answerKeyToString();
+                answer = ((MultipleChoiceQuestion) this.questions.get(i)).answerKeyToString();
             } else {
                 System.err.println(String.format("Object at index %d is an unknown question type!", i));
                 System.exit(1);
