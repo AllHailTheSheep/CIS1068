@@ -1,5 +1,7 @@
 package lab11;
 
+import java.util.Arrays;
+
 public class Applicant {
     // 0: last_name, 1: first_name, 2: phone, 3: email, 4: address, 5: postalZip, 6: region, 7: languages,
     // 8: GPA, 9: major, 10: university
@@ -8,7 +10,8 @@ public class Applicant {
     private String[] languages;
 
     public Applicant(String A) {
-        String[] columns = A.split("\\b,\\b");
+        // this will match commas not in quotes
+        String[] columns = A.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", -1);
         this.lastName = columns[0];
         this.firstName = columns[1];
         this.phone = columns[2];
@@ -23,7 +26,16 @@ public class Applicant {
     }
 
     public double getScore() {
-
+        double part1 = getGPA() * 25/2;
+        double part2 = 0;
+        for (String lang : getLanguages()) {
+            if (lang.equals("Java") && part2 != 50.0) {
+                part2 = 50.0;
+            } else if (part2 != 50.0) {
+                part2 += 25/4;
+            }
+        }
+        return part1 + part2;
     }
 
     public String getLastName() {
@@ -70,4 +82,8 @@ public class Applicant {
         return university;
     }
 
+    public String toString() {
+        return String.format("%s, %s: score = %f\n\tGPA: %f\n\tLanguages: %s\n\tPhone: %s\n\tEmail: %s", getLastName(), getFirstName(),
+                            getScore(), getGPA(), Arrays.toString(getLanguages()), getPhone(), getEmail());
+    }
 }
